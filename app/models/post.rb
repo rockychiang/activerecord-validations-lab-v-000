@@ -8,6 +8,8 @@ class Post < ActiveRecord::Base
   private
 
   def clickbait?
+    if !@title.include?("Won't Believe", "Secret", "Top", "Guess")
 
+    end
   end
 end
