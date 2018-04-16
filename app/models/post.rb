@@ -11,7 +11,7 @@ class Post < ActiveRecord::Base
     cb = ["Won't Believe", "Secret", "Top", "Guess"].map do |phrase|
       title.include?(phrase) ? true : false
     end
-    if !cb.include?(true)
+    if title.present? && !cb.include?(true)
       errors.add(:title, "Not clickbait-y")
     end
   end
