@@ -8,8 +8,10 @@ class Post < ActiveRecord::Base
   private
 
   def clickbait?
-    if title.include?("Won't Believe", "Secret", "Top", "Guess")
-      errors.add(:title, "Not clickbait-y")
+    cb = ["Won't Believe", "Secret", "Top", "Guess"].map do |phrase|
+      title.include?(phrase) ? true : false
     end
+    if !cb.include?(true)
+      errors.add(:title, "Not clickbait-y")
   end
 end
