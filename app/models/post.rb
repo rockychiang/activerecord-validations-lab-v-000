@@ -8,7 +8,6 @@ class Post < ActiveRecord::Base
   private
 
   def clickbait?
-    binding.pry
     if title.include?("Won't Believe", "Secret", "Top", "Guess")
       errors.add(:title, "Not clickbait-y")
     end
