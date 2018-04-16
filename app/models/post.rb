@@ -13,5 +13,6 @@ class Post < ActiveRecord::Base
     end
     if !cb.include?(true)
       errors.add(:title, "Not clickbait-y")
+    end
   end
 end
